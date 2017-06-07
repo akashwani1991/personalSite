@@ -8,7 +8,6 @@
       rgba(0, 0, 0, 0.4),
       rgba(0, 0, 0, 0.4)
     ), url("cover.jpg");
-    height: 100%;
     width: 100%;
     background-size: cover;
   }
@@ -28,6 +27,7 @@
   }
 
   .skills {
+    margin-top: 55px;
     width: 100%;
   }
 
