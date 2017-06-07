@@ -1,0 +1,91 @@
+<style media="screen">
+  .collapse {
+    font-size: 22px;
+  }
+
+  #home {
+    background: linear-gradient(
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.4)
+    ), url("cover.jpg");
+    height: 400px;
+    width: 100%;
+    background-size: cover;
+  }
+
+  #about {
+    margin-top: 300px;
+    text-align: center;
+  }
+
+  #about h1 {
+    color: #ffffff;
+    font-size: 300%;
+  }
+
+  #about p {
+    color: #ffffff;
+  }
+
+  .skills {
+    width: 100%;
+  }
+
+  .title {
+    margin-top: 50px;
+    font-size: 300%;
+    background-color: #0059b3;
+    color: #ffffff;
+    text-align: center;
+  }
+
+  .center {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  ul.share-buttons {
+    list-style: none;
+    padding: 0;
+  }
+
+  ul.share-buttons li {
+    display: inline;
+  }
+
+  .jumbotron {
+    position: absolute;
+    margin-bottom: 0px;
+    height: 150px;
+    vertical-align: bottom;
+    width: 100%;
+    color: white;
+    padding: 0;
+    background-size: cover;
+    overflow: hidden;
+  }
+
+  #video-background {
+    width:100%;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .table {
+    font-size: 150%;
+    padding: 25px;
+    table-layout: auto;
+    width: 60%;
+    margin: 0px auto;
+  }
+
+  .marginTop {
+    margin-top: 30px;
+  }
+
+  .marginBottom {
+    margin-bottom: 30px;
+  }
+</style>
