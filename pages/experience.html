@@ -1,6 +1,6 @@
-<div class="container marginBottom skills" id="skillset">
-  <h1 class="center title">{{ skills }}</h1>
-  <div ng-controller="experiencePage" class="col-md-12 marginTop">
+<div class="container marginBottom skills" id="skillset" ng-controller="experiencePage">
+  <h1 class="center title">{{ techskills }}</h1>
+  <div class="col-md-12 marginTop">
     <table class="table table-striped table-bordered table-hover">
       <tbody>
         <tr ng-repeat="skill in technical">
@@ -9,5 +9,10 @@
         </tr>
       </tbody>
     </table>
+  </div>
+  <br /> <br /> <br />
+  <h1 class="center title">{{ experience }}</h1>
+  <div class="container marginTop">
+
   </div>
 </div>
