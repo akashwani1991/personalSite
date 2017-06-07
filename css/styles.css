@@ -27,8 +27,11 @@
   }
 
   .skills {
-    padding-top: 70px;
     width: 100%;
+  }
+
+  #skillSet {
+    padding-top: 70px;
   }
 
   .title {
