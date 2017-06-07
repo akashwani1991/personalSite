@@ -43,9 +43,9 @@
         <div class="collapse navbar-collapse" id="pages" ng-controller="download">
           <ul class="nav navbar-nav navbar-right">
             <a target="_self" download="Resume_Akash_Wani.pdf" class="btn btn-success navbar-btn navbar-right" ng-href="{{ downloadPdf }}"><span class="glyphicon glyphicon-download-alt"></span> Resume</a>
-            <li role="presentation" class="active"><a href="#!/">Home</a></li>
-            <li role="presentation"><a href="#!/experience">Skills & Experience</a></li>
-            <li role="presentation"><a href="#!/projects">Projects</a></li>
+            <li role="presentation" class="toggle active"><a href="#!/">Home</a></li>
+            <li role="presentation" class="toggle"><a href="#!/experience">Skills & Experience</a></li>
+            <li role="presentation" class="toggle"><a href="#!/projects">Projects</a></li>
             <li role="presentation"><a href="#myModal" role="button" data-toggle="modal" data-target="#myModal">Message Me</a></li>
           </ul>
         </div>
@@ -118,6 +118,9 @@
     <script src="lib/app.js"></script>
     <script>
       $(".contentContainer").css("height", $(window).height());
+      $(".toggle").click(function() {
+        $(this).toggleClass("active");
+      }
       document.write('<base href="' + document.location + '" />');
     </script>
   </body>
