@@ -1,61 +1,60 @@
-<style media="screen">
-  .collapse {
+.collapse {
     font-size: 22px;
-  }
+}
 
-  #home {
+#home {
     background: linear-gradient(
-      rgba(0, 0, 0, 0.4),
-      rgba(0, 0, 0, 0.4)
+            rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.6)
     ), url("cover.jpg");
     width: 100%;
     background-size: cover;
-  }
+}
 
-  #about {
+#about {
     margin-top: 300px;
     text-align: center;
-  }
+}
 
-  #about h1 {
+#about h1 {
     color: #ffffff;
     font-size: 300%;
-  }
+}
 
-  #about p {
+#about p {
     color: #ffffff;
-  }
+}
 
-  .skills {
+.skills {
     width: 100%;
-  }
+}
 
-  #skillSet {
+#skillSet {
     padding-top: 70px;
-  }
+}
 
-  .title {
+.title {
     font-size: 300%;
     background-color: #0059b3;
     color: #ffffff;
     text-align: center;
-  }
+}
 
-  .center {
+.center {
     text-align: center;
     margin-top: 20px;
-  }
+}
 
-  ul.share-buttons {
+ul.share-buttons {
     list-style: none;
     padding: 0;
-  }
+}
 
-  ul.share-buttons li {
+ul.share-buttons li {
     display: inline;
-  }
+}
 
-  .jumbotron {
+.jumbotron {
     position: absolute;
     margin-bottom: 0px;
     height: 150px;
@@ -65,29 +64,28 @@
     padding: 0;
     background-size: cover;
     overflow: hidden;
-  }
+}
 
-  #video-background {
+#video-background {
     width:100%;
     background-size: cover;
     position: absolute;
     top: 0;
     left: 0;
-  }
+}
 
-  .table {
+.table {
     font-size: 150%;
     padding: 25px;
     table-layout: auto;
     width: 60%;
     margin: 0px auto;
-  }
+}
 
-  .marginTop {
+.marginTop {
     margin-top: 30px;
-  }
+}
 
-  .marginBottom {
+.marginBottom {
     margin-bottom: 30px;
-  }
-</style>
+}
