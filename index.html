@@ -61,6 +61,7 @@
             <h2 class="modal-title" id="exampleModalLabel">Connect Message</h2>
           </div>
           <div class="modal-body">
+            <div ng-show="message">{{ message }}</div>
             <form ng-submit="processForm()">
               <div class="row">
                   <div class="col-md-6">
