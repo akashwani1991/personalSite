@@ -118,7 +118,7 @@
     <script src="lib/angular-route.min.js"></script>
     <script src="lib/app.js"></script>
     <script>
-      $("#pagesinview").css('height',$(container).innerHeight());
+      $("#pagesinview").css("min-height", $(window).height());
       $(".contentContainer").css("min-height", $(window).height());
       document.write('<base href="' + document.location + '" />');
     </script>
