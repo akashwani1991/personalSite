@@ -144,7 +144,7 @@
         }else{
             $.ajax({
                 type:'POST',
-                url:'pages/email.php',
+                url:'email.php',
                 data:'connectMessage=1&name='+name+'&email='+email+'&subject='+subject+'&message='+message,
                 beforeSend: function () {
                     $('.submitBtn').attr("disabled","disabled");
