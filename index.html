@@ -96,7 +96,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Send Message</button>
+            <button type="button" class="btn btn-primary" onclick="connectForm()">Send Message</button>
           </div>
         </div>
       </div>
@@ -118,7 +118,7 @@
     <script>
       $(".contentContainer").css("min-height", $(window).height());
       document.write('<base href="' + document.location + '" />');
-      function submitContactForm() {
+      function connectForm() {
         var reg = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
         var name = $('#name').val();
         var email = $('#email').val();
