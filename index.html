@@ -118,6 +118,53 @@
     <script>
       $(".contentContainer").css("min-height", $(window).height());
       document.write('<base href="' + document.location + '" />');
+      function submitContactForm() {
+        var reg = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+        var name = $('#name').val();
+        var email = $('#email').val();
+        var subject = $('#subject').val();
+        var message = $('#message').val();
+        if(name.trim() == '' ){
+            alert('Please enter your name.');
+            $('#inputName').focus();
+            return false;
+        }else if(email.trim() == '' ){
+            alert('Please enter your email.');
+            $('#inputEmail').focus();
+            return false;
+        }else if(email.trim() != '' && !reg.test(email)){
+            alert('Please enter valid email.');
+            $('#inputEmail').focus();
+            return false;
+        }else if(message.trim() == '' ){
+            alert('Please enter your message.');
+            $('#inputMessage').focus();
+            return false;
+        }else{
+            $.ajax({
+                type:'POST',
+                url:'pages/email.php',
+                data:'connectMessage=1&name='+name+'&email='+email+'&subject='+subject+'&message='+message,
+                beforeSend: function () {
+                    $('.submitBtn').attr("disabled","disabled");
+                    $('.modal-body').css('opacity', '.5');
+                },
+                success:function(msg){
+                    if(msg == 'ok'){
+                        $('#name').val('');
+                        $('#email').val('');
+                        $('#subject').val('');
+                        $('#message').val('');
+                        $('.statusMsg').html('<span style="color:green;">Thanks for connecting.</p>');
+                    }else{
+                        $('.statusMsg').html('<span style="color:red;">Some problem occurred, please try again.</span>');
+                    }
+                    $('.submitBtn').removeAttr("disabled");
+                    $('.modal-body').css('opacity', '');
+                }
+            });
+        }
+      }
     </script>
   </body>
 </html>
