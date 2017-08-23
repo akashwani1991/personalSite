@@ -104,7 +104,7 @@
       </div>
     </div>
 
-    <div>
+    <div id="pagesinview">
       <ng-view></ng-view>
     </div>
 
@@ -118,6 +118,7 @@
     <script src="lib/angular-route.min.js"></script>
     <script src="lib/app.js"></script>
     <script>
+      $("#pagesinview").css('height',$(container).innerHeight());
       $(".contentContainer").css("min-height", $(window).height());
       document.write('<base href="' + document.location + '" />');
     </script>
