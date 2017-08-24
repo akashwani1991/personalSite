@@ -1,6 +1,4 @@
 <?php
-require_once 'PHPMailerAutoload.php';
-
 if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) && isset($_POST['message'])) {
 
     //check if any of the inputs are empty
