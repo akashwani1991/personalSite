@@ -13,15 +13,15 @@
                 <div class="row">
                     <div class="col-md-8">
                         <div class="well well-sm">
-                            <form ng-submit="processForm()">
+                            <form ng-submit="submit(contactform)" name="contactform" method="post">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="form-group">
+                                    <div class="form-group" ng-class="{ 'has-error': contactform.name.$invalid && submitted }">
                                         <label for="name">
                                             Name</label>
                                         <input type="text" class="form-control" id="name" placeholder="Enter name" ng-model="formData.name" required="required" />
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group" ng-class="{ 'has-error': contactform.email.$invalid && submitted }">
                                         <label for="email">
                                             Email Address</label>
                                         <div class="input-group">
@@ -29,13 +29,13 @@
                                             </span>
                                             <input type="email" class="form-control" id="email" placeholder="Enter email" ng-model="formData.email" required="required" /></div>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group" ng-class="{ 'has-error': contactform.subject.$invalid && submitted }">
                                         <label for="subject">
                                             Subject</label>
                                         <input type="text" class="form-control" id="subject" placeholder="Enter subject" ng-model="formData.subject" required="required" />
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6" ng-class="{ 'has-error': contactform.message.$invalid && submitted }">
                                     <div class="form-group">
                                         <label for="message">
                                             Message</label>
@@ -44,11 +44,12 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">
+                                    <button type="submit" class="btn btn-primary pull-right" id="btnContactUs" ng-disabled="submitButtonDisabled">
                                         Send Message</button>
                                 </div>
                             </div>
                             </form>
+                        <p ng-class="result" style="padding: 15px; margin: 0;">{{ resultMessage }}</p>
                         </div>
                     </div>
                 </div>
