@@ -1,5 +1,5 @@
 <?php
-require_once 'PHPMailerAutoload.php';
+require_once 'phpmailer/PHPMailerAutoload.php';
 
 if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) && isset($_POST['message'])) {
 
