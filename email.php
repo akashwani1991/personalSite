@@ -1,67 +1,40 @@
 <?php
-if(!isset($_POST['connectMessage']))
-{
-	//This page should not be accessed directly. Need to submit the form.
-	echo "error; you need to submit the form!";
-}
-$name = $_POST['name'];
-$visitor_email = $_POST['email'];
-$subject = $_POST['subject'];
-$message = $_POST['message'];
+require_once 'PHPMailerAutoload.php';
 
-//Validate first
-if(empty($name)||empty($visitor_email)) 
-{
-    echo "Name and email are mandatory!";
-    exit;
-}
+if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['subject']) && isset($_POST['message'])) {
 
-if(IsInjected($visitor_email))
-{
-    echo "Bad email value!";
-    exit;
-}
+    //check if any of the inputs are empty
+    if (empty($_POST['name']) || empty($_POST['email']) || empty($_POST['subject']) || empty($_POST['message'])) {
+        $data = array('success' => false, 'message' => 'Please fill out the form completely.');
+        echo json_encode($data);
+        exit;
+    }
 
-$email_from = 'apw3928@rit.edu';
-$email_subject = "Website: $subject";
-$email_body = "You have received a new message from the user $name.\n".
-    "Here is the message:\n $message".
-    
-$to = "apw3928@rit.edu";
-$headers = "From: $email_from \r\n";
-$headers .= "Reply-To: $visitor_email \r\n";
+    //create an instance of PHPMailer
+    $mail = new PHPMailer();
 
-// Send email
-if(mail($to,$email_subject,$email_body,$headers)) {
-        $status = 'ok';
+    $mail->From = $_POST['email'];
+    $mail->FromName = $_POST['name'];
+    $mail->AddAddress('apw3928@rit.edu'); //recipient 
+    $mail->Subject = $_POST['subject'];
+    $mail->Body = "Name: " . $_POST['name'] . "\r\n\r\nMessage: " . stripslashes($_POST['message']);
+
+    if (isset($_POST['ref'])) {
+        $mail->Body .= "\r\n\r\nRef: " . $_POST['ref'];
+    }
+
+    if(!$mail->send()) {
+        $data = array('success' => false, 'message' => 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo);
+        echo json_encode($data);
+        exit;
+    }
+
+    $data = array('success' => true, 'message' => 'Thanks! We have received your message.');
+    echo json_encode($data);
+
 } else {
-        $status = 'err';
-}
 
-// Output status
-echo $status;die;
+    $data = array('success' => false, 'message' => 'Please fill out the form completely.');
+    echo json_encode($data);
 
-// Function to validate against any email injection attempts
-function IsInjected($str)
-{
-  $injections = array('(\n+)',
-              '(\r+)',
-              '(\t+)',
-              '(%0A+)',
-              '(%0D+)',
-              '(%08+)',
-              '(%09+)'
-              );
-  $inject = join('|', $injections);
-  $inject = "/$inject/i";
-  if(preg_match($inject,$str))
-    {
-    return true;
-  }
-  else
-    {
-    return false;
-  }
 }
-   
-?> 
