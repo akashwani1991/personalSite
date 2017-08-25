@@ -1,6 +1,6 @@
 <?php
 $response = array( 'success' => false );
-    $formD = file_get_contents( 'php://formData' );
+    $formD = file_get_contents( 'php://input' );
     $data = json_decode( $formD );
     if ( $data->submit ) {
         $name = $data->name;
