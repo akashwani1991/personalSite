@@ -13,15 +13,17 @@
                 <div class="row">
                     <div class="col-md-8">
                         <div class="well well-sm">
-                            <form ng-submit="submit(contactform)" name="contactform" method="post">
+                            <form method="post" name="form" role="form" ng-submit="form.$valid && sendMessage(formData)" novalidate>
+                            <p ng-show="success">Thanks for getting in touch!</p>
+                            <p ng-show="error">Something wrong happened!, please try again.</p>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="form-group" ng-class="{ 'has-error': contactform.name.$invalid && submitted }">
+                                    <div class="form-group">
                                         <label for="name">
                                             Name</label>
                                         <input type="text" class="form-control" id="name" placeholder="Enter name" ng-model="formData.name" required="required" />
                                     </div>
-                                    <div class="form-group" ng-class="{ 'has-error': contactform.email.$invalid && submitted }">
+                                    <div class="form-group">
                                         <label for="email">
                                             Email Address</label>
                                         <div class="input-group">
@@ -29,13 +31,13 @@
                                             </span>
                                             <input type="email" class="form-control" id="email" placeholder="Enter email" ng-model="formData.email" required="required" /></div>
                                     </div>
-                                    <div class="form-group" ng-class="{ 'has-error': contactform.subject.$invalid && submitted }">
+                                    <div class="form-group">
                                         <label for="subject">
                                             Subject</label>
                                         <input type="text" class="form-control" id="subject" placeholder="Enter subject" ng-model="formData.subject" required="required" />
                                     </div>
                                 </div>
-                                <div class="col-md-6" ng-class="{ 'has-error': contactform.message.$invalid && submitted }">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="message">
                                             Message</label>
@@ -49,7 +51,6 @@
                                 </div>
                             </div>
                             </form>
-                        <p ng-class="result" style="padding: 15px; margin: 0;">{{ resultMessage }}</p>
                         </div>
                     </div>
                 </div>
